@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Service Request Tracker — demo</title>
+<meta name="description" content="Personal project demo: small service-request tracker. Vanilla JS + localStorage.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header><h1>Service Request Tracker</h1>
+<p>Personal project demo · data stays in this browser (localStorage) · <button id="reset">Reset demo data</button></p></header>
+<main>
+<section class="dash" aria-label="Dashboard">
+<div><strong id="c-open">0</strong><span>open</span></div>
+<div><strong id="c-prog">0</strong><span>in progress</span></div>
+<div><strong id="c-res">0</strong><span>resolved</span></div>
+<div><strong id="c-high">0</strong><span>high priority open</span></div>
+</section>
+<section class="cols">
+<form id="f" class="card" aria-label="New request">
+<h2>New request</h2>
+<label>Title<input id="title" required maxlength="80"></label>
+<label>Requester<input id="requester" required maxlength="60"></label>
+<label>Category<select id="category"><option>IT support</option><option>ERP</option><option>Network</option><option>Facilities</option><option>Other</option></select></label>
+<label>Priority<select id="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></label>
+<label>Description<textarea id="desc" rows="3" maxlength="1000"></textarea></label>
+<button type="submit">Add request</button>
+</form>
+<div class="card">
+<h2>Requests</h2>
+<div class="filters">
+<input id="q" type="search" placeholder="Search…" aria-label="Search requests">
+<select id="f-status" aria-label="Filter by status"><option value="">All statuses</option><option>Open</option><option>In progress</option><option>Resolved</option><option>Closed</option></select>
+<select id="f-prio" aria-label="Filter by priority"><option value="">All priorities</option><option>Low</option><option>Medium</option><option>High</option><option>Urgent</option></select>
+</div>
+<ul id="list"></ul>
+</div>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
